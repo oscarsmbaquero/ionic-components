@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-action-sheet',
@@ -7,9 +8,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionSheetPage implements OnInit {
 
-  constructor() { }
+  constructor(private actionSheetCtrl: ActionSheetController) { }
 
   ngOnInit() {
   }
 
+  onClick(){
+    this.presentActionSheet();
+    }
+    async presentActionSheet() {
+      const actionSheet = await this.actionSheetCtrl.create({
+        header: 'Albums',
+        backdropDismiss:false,//no permite cerrar las opciones pulsando fuera
+        // cssClass: 'my-custom-class',
+        buttons: [
+          {
+            text: 'Delete',
+            role: 'destructive',
+            data: {
+              action: 'delete',
+            },
+          },
+          {
+            text: 'Share',
+            data: {
+              action: 'share',
+            },
+          },
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            data: {
+              action: 'cancel',
+            },
+          },
+        ],
+      });
+      actionSheet.present();
+    }
 }

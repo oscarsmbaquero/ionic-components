@@ -1,0 +1,27 @@
+<app-header titulo="avatar"></app-header>
+  <ion-toolbar>
+    <ion-title>avatar</ion-title>
+  </ion-toolbar>
+
+
+<ion-content>
+  <ion-chip color="primary outline=">
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" src="../../../assets/foto_perfil.jpg" />
+    </ion-avatar>
+      <ion-label>
+       Default
+      </ion-label>
+  </ion-chip>
+  <ion-list>
+    <ion-item *ngFor="let item of [1,1,1,1,1]">
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="../../../assets/foto_perfil.jpg" />
+      </ion-avatar>
+      <ion-label>
+        Avatar
+       </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
